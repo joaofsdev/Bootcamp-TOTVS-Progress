@@ -1,0 +1,6 @@
+REPEAT:
+CREATE customer.
+DISPLAY customer WITH SIZE 80 BY 20 SIDE-LABELS 1 COL.
+PROMPT-FOR customer.
+ASSIGN customer.
+END.

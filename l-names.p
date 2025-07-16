@@ -7,15 +7,20 @@ comando FOR EACH. A tela deve se assemelhar a que segue:
 */
 CURRENT-WINDOW:WIDTH = 200.
 
-REPEAT:
         PROMPT-FOR customer.NAME.
-        FIND FIRST customer WHERE customer.NAME BEGINS INPUT customer.NAME NO-ERROR.
-
+        FIND FIRST customer WHERE customer.NAME BEGINS INPUT customer.NAME NO-LOCK NO-ERROR.
+                  DISPLAY customer.NAME
+                                 customer.country
+                                 customer.CustNum WITH WIDTH 180 3 COL.
         IF AVAIL customer THEN
         DO:
-                 DISPLAY customer.CustNum
-                                 customer.NAME
-                                 customer.country WITH WIDTH 180 1 COL.
+                         REPEAT:
+                               FIND NEXT customer WHERE customer.CustNum > INPUT customer.custNum.
+                               DISPLAY customer.CustNum
+                                               customer.NAME
+                                               customer.country WITH WIDTH 180 3 COL.
+
+                          END.
         END.
         ELSE DO:
                  MESSAGE "Usuario Nao Encontrado"
@@ -23,8 +28,3 @@ REPEAT:
                  MESSAGE "Tente Novamente"
                  VIEW-AS ALERT-BOX.
         END.
-END. 
-
-
-
-

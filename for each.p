@@ -1,6 +1,5 @@
-REPEAT:
-CREATE customer.
-DISPLAY customer WITH SIZE 80 BY 20 SIDE-LABELS 1 COL.
-PROMPT-FOR customer.
-ASSIGN customer.
+FOR EACH customer NO-LOCK
+WHERE customer.NAME = "Marquinhos":
+DISPLAY customer.custnum
+customer.NAME WITH FONT 2 WIDTH 120.
 END.

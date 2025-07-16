@@ -19,12 +19,8 @@ REPEAT:
                   VIEW-AS ALERT-BOX.
         END.
         ELSE DO:
-                 
-                MESSAGE "encontrei o registro com este codigo ' "
-                      INPUT i-CustNum customer.NAME
-                      " ', "
-                      VIEW-AS ALERT-BOX.
-                MESSAGE "tecle enter para continuar"
+                 DELETE customer.
+                MESSAGE "Registro Deletado"
                       VIEW-AS ALERT-BOX.
         END.
 END.

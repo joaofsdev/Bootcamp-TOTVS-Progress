@@ -11,20 +11,13 @@ DEF FRAME f-order
     order.ordernum
     order.orderdate FORMAT "99/99/9999" LABEL "Data"
     WITH OVERLAY DOWN THREE-D.
-//VIEW FRAME f-dados.
-//PAUSE.
-
 FOR EACH customer WITH FRAME f-dados:
      DISPLAY customer.custnum
              customer.NAME
              customer.address.
       FOR EACH order OF customer NO-LOCK:
         DISP order.ordernum
-             order.orderdate
-             WITH FRAME f-order.
+                 order.orderdate
+                 WITH FRAME f-order.
       END.
-      //DOWN.
-      //PAUSE.
-      //HIDE FRAME f-dados.
-      //PAUSE.
 END.

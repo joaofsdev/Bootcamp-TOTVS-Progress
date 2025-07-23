@@ -1,0 +1,12 @@
+DEFINE VARIABLE cNome AS CHARACTER   NO-UNDO.
+DEFINE VARIABLE dtAtualiz AS DATE INITIAL TODAY LABEL "Atualizacao"       NO-UNDO FORMAT "99/99/9999".
+DEFINE VARIABLE ix  AS INTEGER     NO-UNDO.
+
+REPEAT:
+ASSIGN ix = ix + 1.
+DISP ix.
+UPDATE  cNome
+                dtAtualiz
+                WITH SIDE-LABELS 1 COL.
+ASSIGN cNome = cNome + "x".
+END.
